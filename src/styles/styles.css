@@ -1,0 +1,889 @@
+html {
+  --black-coffee: hsl(338, 14%, 16%);
+  --black-coffee-opacity: hsla(340, 15%, 16%, 0.164);
+  --green-hunter: hsl(125, 15%, 32%);
+  --offwhite-old-lace: hsl(41, 61%, 92%);
+  --orange-princeton: hsl(26, 83%, 56%);
+  --red-permanent-geranium-lake: hsl(0, 75%, 52%);
+  --red-high-opacity: hsl(0, 75%, 95%);
+  --green-high-opacity: hsl(125, 15%, 90%);
+  --green-medium-opacity: hsla(126, 15%, 50%, 0.829);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,700;0,900;1,100;1,200;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,600;0,700;0,900;1,100;1,400;1,700;1,900&display=swap");
+
+html body {
+  background-color: rgb(247, 239, 222);
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  color: #455e47ff;
+  background-image: linear-gradient(
+      145deg,
+      var(--offwhite-old-lace) 20%,
+      hsla(41, 61%, 92%, 0)
+    ),
+    url("../assets/dot.svg");
+  background-repeat: space;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+hr {
+  width: 60%;
+  opacity: 20%;
+  border-top: 1px solid #2e2327ff;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
+  background-color: var(--green-hunter);
+}
+
+.nav-bar-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .contentArea {
+  width: 90%;
+} */
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1.5%;
+  padding-bottom: 0;
+  margin-right: 0;
+}
+
+.logo {
+  height: 4em;
+  width: auto;
+  padding-top: 2rem;
+  margin: 0 auto;
+}
+
+.loginLogout {
+  align-self: flex-start;
+  border-style: none;
+  background-color: hsl(41, 61%, 92%);
+  color: hsl(125, 15%, 32%);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1em;
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  margin: 0.5em;
+  margin-top: 1.2em;
+}
+
+.loginLogout:hover {
+  cursor: pointer;
+  background-color: hsl(125, 15%, 80%);
+}
+
+/* ! TOP MENU */
+.menuContainer {
+  margin: 0% auto 0 auto;
+}
+.hamburger-menu {
+  z-index: 4000;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
+  cursor: pointer;
+}
+
+.hamburger-menu .bar {
+  height: 5px;
+  background: var(--green-hunter);
+  border-radius: 5px;
+  transform-origin: left;
+  transition: all 0.5s;
+}
+
+.close-menu {
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
+  cursor: pointer;
+}
+.close-menu .bar {
+  height: 5px;
+  background: var(--offwhite-old-lace);
+  border-radius: 5px;
+  margin: 3px 0px;
+  transform-origin: left;
+  transition: all 0.5s;
+}
+
+.close-menu .top {
+  z-index: 5000;
+  transform: rotate(45deg);
+  background: var(--offwhite-old-lace);
+}
+
+.close-menu .middle {
+  opacity: 0;
+}
+
+.close-menu .bottom {
+  z-index: 5000;
+  transform: rotate(-45deg);
+}
+
+.nav-hidden {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--green-hunter);
+  color: var(--offwhite-old-lace);
+  top: 0;
+  right: 0;
+  padding-top: 5%;
+  padding-left: -5%;
+  padding-right: -5%;
+  margin-top: -5%;
+  margin-left: -5%;
+  margin-right: -5%;
+  width: 110%;
+  height: 100vh;
+  overflow-x: hidden;
+  transform: scale(0.000000000000001) translateX(200%);
+  /* transform: translateX(200%); */
+  transition: transform 0.3s ease;
+}
+
+.nav-hidden div {
+  position: relative;
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  display: block;
+  margin: 1.5rem;
+  padding-top: 1rem;
+}
+
+.nav-displayed {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--green-hunter);
+  color: var(--offwhite-old-lace);
+  top: 0;
+  right: 0;
+  padding-top: 5%;
+  padding-left: -5%;
+  padding-right: -5%;
+  margin-top: -5%;
+  margin-left: -5%;
+  margin-right: -5%;
+  width: 110%;
+  height: 100vh;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-displayed div {
+  position: relative;
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  display: block;
+  margin: 1.5rem;
+  padding-top: 1rem;
+  cursor: pointer;
+  border-top-style: solid;
+  border-color: transparent;
+  border-top-width: 2px;
+}
+
+.nav-displayed div a {
+  text-decoration: none;
+  color: var(--offwhite-old-lace);
+}
+.nav-hidden div a {
+  text-decoration: none;
+  color: var(--offwhite-old-lace);
+}
+
+.nav-displayed div:hover {
+  border-top-style: solid;
+  border-color: transparent;
+  border-top-color: var(--offwhite-old-lace);
+  border-top-width: 2px;
+}
+
+/* ! END OF TOP MENU*/
+
+.infoCard {
+  background: #ec8232ff;
+  color: #f7efdeff;
+  margin-left: -5%;
+  margin-right: -5%;
+  padding-left: 9%;
+  padding-right: 7%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+
+.infoCard p {
+  margin: 0 auto;
+  padding-bottom: 0.7rem;
+  padding-left: 5%;
+  line-height: 1.7rem;
+}
+
+.coffeeInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  align-items: center;
+  align-content: flex-start;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.coffeeInfo h1 {
+  text-align: center;
+}
+
+.coffeeInfo select {
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin: 1em;
+  color: rgb(136, 133, 133);
+  width: 10em;
+  height: 3em;
+  border: none;
+}
+
+.footer {
+  background-color: hsl(125, 15%, 32%);
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 3%;
+  padding-bottom: 4%;
+  margin-left: -5%;
+  margin-right: -5%;
+  margin-bottom: -5%;
+}
+
+.footer hr {
+  color: #f7efdeff;
+  border-radius: 5px;
+  border-top: 0.5px;
+}
+
+.footer p {
+  padding-top: 1%;
+  color: #f7efdeff;
+}
+
+.primaryButton {
+  border-width: 0;
+  background-color: #455e47ff;
+  color: #f7efdeff;
+  font-family: "Raleway";
+  font-size: 1.1em;
+  text-decoration: none;
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  margin: 0.5em;
+  margin-top: 2em;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.callToActionButton {
+  cursor: pointer;
+}
+
+.secondaryButton {
+  border-width: 0;
+  background-color: white;
+  color: hsl(0, 75%, 65%);
+  border-style: solid;
+  border-color: hsl(0, 75%, 95%);
+  border-width: 1px;
+  margin: 0.5rem;
+  font-family: "Raleway";
+  font-size: 1.1em;
+  text-decoration: none;
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  margin: auto;
+  margin-top: 2em;
+}
+
+.callToActionButton {
+  border-width: 0;
+  background-color: var(--green-hunter);
+  color: #f7efdeff;
+  font-family: "Raleway";
+  font-weight: lighter;
+  font-size: 1.5em;
+  text-decoration: none;
+  padding-right: 3em;
+  padding-left: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin: 0.5em;
+  margin-top: 2em;
+}
+
+.dialTool {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.recipeAndFeedback {
+  display: flex;
+  background-color: white;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  max-width: 94%;
+  margin: 1em auto;
+  box-shadow: 2px 2px 2px rgb(218, 218, 218);
+  border-radius: 8px;
+  border-top-style: solid;
+  border-top-color: hsl(125, 15%, 32%);
+  border-top-width: 8px;
+  padding-bottom: 10px;
+}
+
+.dialTool h3 {
+  text-align: center;
+  margin-top: 1.1em;
+}
+
+.recipe {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.recipeItem {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+
+.labelArea {
+  font-style: normal;
+}
+
+.valueArea {
+  font-weight: bold;
+  font-size: 2em;
+  border: none;
+  color: hsl(125, 15%, 50%);
+}
+.feedbackContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.feedbackItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedbackLabel {
+  font-size: 0.9em;
+}
+
+.dialToolPieces {
+  width: 80%;
+  margin-top: 0;
+}
+
+.recipeSuccess {
+  color: hsl(0, 75%, 52%);
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.loginSignUpForm {
+  display: flex;
+  background-color: white;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  max-width: 94%;
+  margin: 1em auto;
+  box-shadow: 2px 2px 2px rgb(218, 218, 218);
+  border-radius: 8px;
+  border-top-style: solid;
+  border-top-color: hsl(125, 15%, 32%);
+  border-top-width: 8px;
+  padding: 1rem;
+}
+
+.loginSignUpForm input {
+  background-color: hsl(41, 61%, 92%);
+  color: hsl(125, 15%, 32%);
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  border-style: none;
+  height: 1rem;
+  width: 90%;
+  padding: 0.5em;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.profileForm {
+  display: flex;
+  background-color: white;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  max-width: 94%;
+  margin: 1em auto;
+  box-shadow: 2px 2px 2px rgb(218, 218, 218);
+  border-radius: 8px;
+  border-top-style: solid;
+  border-top-color: hsl(125, 15%, 32%);
+  border-top-width: 8px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.profileForm label {
+  color: hsl(125, 15%, 32%);
+}
+
+.profileForm input {
+  color: hsl(125, 15%, 32%);
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 40%;
+  border-width: 1px;
+  border-color: #455e4727;
+  padding: 0.3rem;
+  margin-bottom: 1rem;
+}
+.userName {
+  color: hsl(125, 15%, 32%);
+  text-align: center;
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: "Raleway", sans-serif;
+  border-style: none;
+  height: 1rem;
+  width: 90%;
+  padding-bottom: 1em;
+}
+
+.profileEmail {
+  color: hsl(125, 15%, 60%);
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.profilePicture {
+  width: 60%;
+  height: auto;
+  padding: 0.4rem;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: hsl(125, 15%, 96%);
+}
+
+.profileData {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.profileDataItem {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.profileDataItemValue {
+  font-size: 2em;
+  font-weight: bold;
+  color: hsl(125, 15%, 50%);
+}
+
+.userProfileRecipeCard .recipe {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.userProfileRecipeCard hr {
+  margin: 0;
+}
+
+.userProfileRecipeCard .recipeAndFeedback h3 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: var(--green-medium-opacity);
+}
+
+.userProfileRecipeComment {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  color: var(--green-medium-opacity);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  max-width: 75%;
+}
+
+.recipeComments {
+  padding: 1rem;
+  width: 80%;
+}
+
+.textField {
+  background-color: hsl(41, 61%, 92%);
+  color: var(--green-hunter);
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  border-style: none;
+  width: 75%;
+  height: 1rem;
+  padding: 0.8em;
+  margin: 0.5rem auto;
+}
+
+.textArea {
+  height: 10rem;
+}
+
+.errorMessage {
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem;
+  font-family: "Montserrat", sans-serif;
+  background-color: hsl(0, 75%, 95%);
+  color: var(--red-permanent-geranium-lake);
+}
+
+.successMessage {
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--green-high-opacity);
+  color: var(--green-hunter);
+}
+
+.smallTextUnderField {
+  font-size: 0.8rem;
+  color: var(--green-hunter);
+  margin-top: 0 rem;
+  font-style: italic;
+}
+
+.smallTextUnderField :visited {
+  color: var(--green-hunter);
+}
+
+.clickableLink {
+  text-decoration: underline;
+  margin: 2px;
+}
+.clickableLink:hover {
+  cursor: pointer;
+}
+
+.disclaimer {
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.landingHero {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-content: center;
+  overflow-x: hidden;
+  margin: 8% 5%;
+  margin-bottom: 5%;
+}
+
+.landinPage {
+  width: 80%;
+}
+
+.rightColumnHero {
+  padding-bottom: 5rem;
+}
+
+.leftColumnHero h1 {
+  color: var(--orange-princeton);
+  font-size: 4.5rem;
+  text-align: left;
+  line-height: 4.5rem;
+  margin-bottom: 1rem;
+}
+
+.leftColumnHero p {
+  font-weight: 200;
+  font-size: 1.3rem;
+}
+
+.rightColumnHero button {
+  margin-left: 1.3rem;
+  font-weight: 700;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+/* !New mobile navigation bar */
+
+.nav-bar-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 60px;
+  background-color: var(--green-hunter);
+  color: var(--offwhite-old-lace);
+  width: 105%;
+  margin-left: -5%;
+}
+
+.nav-bar-menu-item,
+.nav-bar-menu-item a {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.6rem;
+  text-decoration: none;
+  color: var(--offwhite-old-lace);
+  cursor: pointer;
+}
+
+.nav-bar-menu-item-close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-bar-menu-hidden {
+  visibility: hidden;
+  transition: visibility 1s ease;
+}
+
+.nav-bar-menu-item:hover,
+.nav-bar-menu-item-close-button:hover {
+  outline: 1px solid var(--offwhite-old-lace);
+}
+
+/* loader divider */
+
+/* @keyframes shakeText {
+  from {
+    font-size: 0.3em;
+  }
+  25% {
+    font-size: 0.5em;
+  }
+  50% {
+    font-size: 0.7em;
+  }
+  75% {
+    font-size: 0.9em;
+  }
+  90% {
+    font-size: 1em;
+  }
+  to {
+    font-size: 1.1em;
+  }
+} */
+
+@media (min-width: 800px) {
+  .contentArea {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+    padding-bottom: 0;
+    margin-right: 0;
+  }
+
+  .header img {
+    margin-top: 1em;
+  }
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .infoCard {
+    background: #ec8232ff;
+    color: #f7efdeff;
+    max-width: 110%;
+    line-height: 1.5rem;
+    margin-left: -15%;
+    margin-right: -15%;
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 2%;
+    padding-bottom: 3%;
+    /* box-shadow: -1px 1px 10px rgb(82, 81, 81); */
+  }
+
+  .infoCard p {
+    margin: 0 auto;
+    max-width: 80%;
+  }
+
+  .loginSignUpForm {
+    margin: 0 auto 2em auto;
+    max-width: 80%;
+  }
+
+  .loginSignUpForm input {
+    width: 60%;
+  }
+
+  .feedbackItems {
+    margin-bottom: 1em;
+  }
+
+  .coffeeInfo {
+    display: block;
+  }
+
+  .recipeAndFeedback {
+    max-width: 80%;
+  }
+
+  .profileForm {
+    margin: 0 auto 2em auto;
+    max-width: 80%;
+  }
+
+  .profileForm input {
+    width: 60%;
+  }
+  .landingPage {
+  }
+  .landingHero {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    margin-bottom: 10%;
+  }
+
+  .leftColumnHero {
+    padding-right: 20%;
+    padding-left: 8%;
+  }
+
+  .leftColumnHero h1 {
+    text-align: left;
+  }
+
+  .leftColumnHero p {
+    justify-self: center;
+    font-weight: 200;
+    font-size: 1.3rem;
+    width: 80%;
+  }
+
+  .rightColumnHero {
+    align-self: center;
+  }
+
+  .rightColumnHero button {
+    align-self: end;
+  }
+
+  /* ! TOP MENU */
+
+  .nav-hidden {
+    overflow-x: hidden;
+  }
+
+  /* ! END OF TOP MENU*/
+}
