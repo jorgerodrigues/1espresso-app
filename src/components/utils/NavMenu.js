@@ -47,13 +47,7 @@ const App = (props) => {
           onClick={() => {
             menuClick();
           }}>
-          <div>
-            {props.isLoggedIn.user ? (
-              <Link to='/Profile'>Profile</Link>
-            ) : (
-              <Link to='/login'>Profile</Link>
-            )}
-          </div>
+          <div>{props.isLoggedIn.user ? <Link to='/Profile'>Profile</Link> : <Link to='/login'>Profile</Link>}</div>
           {props.isLoggedIn.user ? (
             <div
               onClick={() => {
@@ -66,7 +60,9 @@ const App = (props) => {
               <Link to='/login'>Login</Link>
             </div>
           )}
-          <div>About us</div>
+          <div>
+            <Link to='/About'>About us</Link>
+          </div>
         </div>
       </div>
     </div>

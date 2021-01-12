@@ -2,7 +2,7 @@
 
 1espresso was created to help the home-barista to dial in their espresso shots
 well and without lots of coffee waste. It is estimated that for every 250g of
-especiality coffee consumed at home, 100g is wasted in dialing in. This is amounts to several
+especiality coffee consumed at home, 100g is wasted in dialing in. This amounts to several
 tons a year!!
 
 # Tech details

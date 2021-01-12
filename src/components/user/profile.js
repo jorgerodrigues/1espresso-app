@@ -20,18 +20,14 @@ const Profile = (props) => {
           </div> */}
           <div className='profileDataItem'>
             <label>Recipes</label>
-            <div className='profileDataItemValue'>
-              {props.recipesLoaded.length}
-            </div>
+            <div className='profileDataItemValue'>{props.recipesLoaded.length}</div>
           </div>
           {/* <div className='profileDataItem'>
             <label>Following</label>
             <div className='profileDataItemValue'>9</div>
           </div> */}
         </div>
-        <Link
-          to={`/editprofile/${props.isLoggedIn.user.uid}`}
-          className='primaryButton'>
+        <Link to={`/editprofile/${props.isLoggedIn.user.uid}`} className='primaryButton'>
           Edit profile
         </Link>
       </div>

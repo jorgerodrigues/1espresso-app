@@ -18,12 +18,7 @@ html body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   color: #455e47ff;
-  background-image: linear-gradient(
-      145deg,
-      var(--offwhite-old-lace) 20%,
-      hsla(41, 61%, 92%, 0)
-    ),
-    url("../assets/dot.svg");
+  background-image: linear-gradient(145deg, var(--offwhite-old-lace) 20%, hsla(41, 61%, 92%, 0)), url("../assets/dot.svg");
   background-repeat: space;
   margin-bottom: 2rem;
 }
@@ -775,8 +770,12 @@ hr {
 
 @media (min-width: 800px) {
   .contentArea {
-    width: 80%;
+    width: 65%;
     margin: 0 auto;
+  }
+
+  p {
+    line-height: 1.7rem;
   }
 
   .header {
