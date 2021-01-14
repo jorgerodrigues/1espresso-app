@@ -1,22 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-import { originField, roastField, updateRecipe, basketSizeField, } from "../actions/index";
+import { originField, roastField, updateRecipe, basketSizeField } from "../actions/index";
 
 class CoffeeInfo extends React.Component {
-
-
   firstRecipeHandleClick(e) {
     e.preventDefault();
     const roast = this.props.roast;
     let recipe = {};
     if (roast === "Medium") {
-      
-      recipe = { Dose: this.props.basketSize - 1, CoffeeOut: 38, Grind: "-", Time: 29, Ratio: 2 };
+      const dose = this.props.basketSize - 1;
+      recipe = { Dose: dose, CoffeeOut: dose * 2, Grind: "-", Time: 29, Ratio: 2 };
     } else {
       if (roast === "Light") {
-        recipe = { Dose: this.props.basketSize - 2, CoffeeOut: 38, Grind: "-", Time: 30, Ratio: 2 };
+        const dose = this.props.basketSize - 2;
+        recipe = { Dose: dose, CoffeeOut: dose * 2, Grind: "-", Time: 30, Ratio: 2 };
       } else {
-        recipe = { Dose: this.props.basketSize, CoffeeOut: 38, Grind: "-", Time: 26, Ratio: 2 };
+        const dose = this.props.basketSize;
+        recipe = { Dose: this.props.basketSize, CoffeeOut: dose * 2, Grind: "-", Time: 26, Ratio: 2 };
       }
     }
     recipe.BasketSize = this.props.basketSize;
@@ -32,24 +32,19 @@ class CoffeeInfo extends React.Component {
 
   render() {
     // TODO: Create a separate object containing all countries and import it here
-    const countries = [
-      "I don't know",
-      "Brazil",
-      "Colombia",
-      "Guatemala",
-      "Kenya",
-      "Ethiopia",
-      "Italy",
-    ];
+    const countries = ["I don't know", "Brazil", "Colombia", "Guatemala", "Kenya", "Ethiopia", "Italy"];
 
     const roasts = ["", "Light", "Medium", "Dark"];
 
     const basketSizes = ["", 17, 18, 20, 21];
 
     const basketOptions = basketSizes.map((basket, index) => {
-      return (<option key={index} value={basket}>{basket}</option>)
-      
-    })
+      return (
+        <option key={index} value={basket}>
+          {basket}
+        </option>
+      );
+    });
 
     const countryItems = countries.map((country, index) => {
       return (
@@ -74,10 +69,7 @@ class CoffeeInfo extends React.Component {
           <label>
             What is the roast level?
             <br />
-            <select
-              name='Roast'
-              value={this.props.roast}
-              onChange={(e) => this.props.roastField(e.target.value)}>
+            <select name='Roast' value={this.props.roast} onChange={(e) => this.props.roastField(e.target.value)}>
               {roastOptions}
             </select>
           </label>
@@ -87,11 +79,11 @@ class CoffeeInfo extends React.Component {
             What is the size of your basket?
             <br />
             <select
-            name='Basket'
-            value={this.props.basket}
-            onChange={(e)=> {
-              this.props.basketSizeField(e.target.value)
-            }} >
+              name='Basket'
+              value={this.props.basket}
+              onChange={(e) => {
+                this.props.basketSizeField(e.target.value);
+              }}>
               {basketOptions}
             </select>
           </label>
@@ -112,9 +104,7 @@ class CoffeeInfo extends React.Component {
           {this.props.recipeHistory.length > 0 ? (
             ""
           ) : (
-            <button
-              className='primaryButton'
-              onClick={(e) => this.firstRecipeHandleClick(e)}>
+            <button className='primaryButton' onClick={(e) => this.firstRecipeHandleClick(e)}>
               Let's start!
             </button>
           )}
@@ -133,11 +123,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-
 export default connect(mapStateToProps, {
   originField,
   roastField,
   updateRecipe,
   basketSizeField,
 })(CoffeeInfo);
-
